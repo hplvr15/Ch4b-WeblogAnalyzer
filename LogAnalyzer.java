@@ -72,6 +72,29 @@ public class LogAnalyzer
             total = total + hourCounts[hour];
         }
             return total;
-        }
+    }
+    
+    public int busiHour() 
+    {
+         int numOfAccessesAtBusi = 0;
+         int busiHour = 0;
+         int index = 0;
+         
+         while (index < hourCounts.length -1) 
+         {
+             if (numOfAccessesAtBusi < hourCounts[index]) 
+             {
+                 busiHour = index;
+                 numOfAccessesAtBusi = hourCounts[index];
+                 index++;
+             }
+             else 
+             {
+                 index++;
+             }
+         }
+         return busiHour;
+     }
+    
     
 }
