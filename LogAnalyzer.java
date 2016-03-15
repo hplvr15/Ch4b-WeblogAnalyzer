@@ -96,5 +96,50 @@ public class LogAnalyzer
          return busiHour;
      }
     
-    
+      
+   public int twoHourBusi()
+   {
+       int numOfAccessesAtBusi = 0;
+       int index = 0;
+       int busiHour = 0;
+                       
+     	while(index < hourCounts.length - 1)
+     	{
+             if (numOfAccessesAtBusi < hourCounts[index] + hourCounts[index + 1])
+             {
+                  busiHour = index;
+                  numOfAccessesAtBusi = hourCounts[index] + hourCounts[index + 1];
+                  index++;
+             }
+             else 
+             {
+                 index++;
+             }
+        }
+            return busiHour;
+    }        
+
+    public int quietetHour() 
+    {
+        int numOfAccessesAtQuiete = 9999;
+        int quieteHour = 0;
+        int index = 0;
+        
+        while (index < hourCounts.length -1) 
+        {
+             if (numOfAccessesAtQuiete > hourCounts[index])
+            {
+                 quieteHour = index;
+                 numOfAccessesAtQuiete = hourCounts[index];
+                index++;
+            }
+             else 
+             {
+                 index++;
+             }
+         }
+         return quieteHour;
+     }
+     
+     
 }
