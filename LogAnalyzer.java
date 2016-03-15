@@ -11,6 +11,7 @@ public class LogAnalyzer
     private int[] hourCounts;
     // Use a LogfileReader to access the data.
     private LogfileReader reader;
+    private String name[];
 
     /**
      * Create an object to analyze hourly web accesses.
@@ -22,6 +23,12 @@ public class LogAnalyzer
         hourCounts = new int[24];
         // Create the reader to obtain the data.
         reader = new LogfileReader();
+    }
+    
+    public LogAnalyzer(String filename)
+    {
+        hourCounts = new int[24];
+        reader = new LogfileReader(filename);
     }
 
     /**
